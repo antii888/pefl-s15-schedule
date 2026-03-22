@@ -19,153 +19,262 @@
     --muted: #7070a0;
     --pfc: #2d91c2;
     --efc: #c25c2d;
-    --green: #40c07a;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: 'Barlow', sans-serif; min-height: 100vh; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Barlow', sans-serif;
+    min-height: 100vh;
+  }
+
+  /* BG texture */
   body::before {
-    content:''; position:fixed; inset:0;
+    content:'';
+    position:fixed; inset:0;
     background:
       radial-gradient(ellipse at 20% 0%, rgba(92,45,145,0.25) 0%, transparent 60%),
       radial-gradient(ellipse at 80% 100%, rgba(26,58,110,0.3) 0%, transparent 60%);
     pointer-events:none; z-index:0;
   }
+
   .wrap { position:relative; z-index:1; max-width:1100px; margin:0 auto; padding:0 16px 60px; }
 
-  header { text-align:center; padding:48px 0 32px; border-bottom:2px solid var(--border); margin-bottom:36px; }
+  /* HEADER */
+  header {
+    text-align:center;
+    padding: 48px 0 32px;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 36px;
+  }
   .league-badge {
-    display:inline-block; background:linear-gradient(135deg,var(--purple),var(--blue));
-    border:2px solid var(--gold); border-radius:4px; padding:4px 16px;
-    font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:700;
-    letter-spacing:3px; color:var(--gold); text-transform:uppercase; margin-bottom:12px;
+    display:inline-block;
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    border: 2px solid var(--gold);
+    border-radius: 4px;
+    padding: 4px 16px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 12px;
   }
   h1 {
-    font-family:'Bebas Neue',sans-serif; font-size:clamp(52px,10vw,96px);
-    letter-spacing:6px; line-height:1;
-    background:linear-gradient(180deg,#fff 0%,var(--gold) 100%);
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:4px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 10vw, 96px);
+    letter-spacing: 6px;
+    line-height: 1;
+    background: linear-gradient(180deg, #fff 0%, var(--gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4px;
   }
-  .subtitle { font-family:'Barlow Condensed',sans-serif; font-size:20px; font-weight:600; letter-spacing:4px; color:var(--muted); text-transform:uppercase; }
+  .subtitle {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
 
   /* WEEK TABS */
-  .week-nav { display:flex; gap:6px; flex-wrap:wrap; justify-content:center; margin-bottom:32px; }
+  .week-nav {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 32px;
+  }
   .week-btn {
-    font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:700; letter-spacing:1px;
-    background:var(--card); border:1px solid var(--border); color:var(--muted);
-    padding:7px 13px; border-radius:3px; cursor:pointer; transition:all 0.15s; text-transform:uppercase;
-    position:relative;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 7px 13px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-transform: uppercase;
   }
-  .week-btn:hover { border-color:var(--neon); color:var(--text); }
-  .week-btn.active { background:linear-gradient(135deg,var(--purple),var(--blue)); border-color:var(--gold); color:var(--gold); }
-  .week-btn.complete { border-color:var(--green); color:var(--green); }
-  .week-btn.complete.active { background:linear-gradient(135deg,#0d2a1a,#0d1a2a); border-color:var(--green); color:var(--green); }
-  .week-btn.partial { border-color:var(--gold2); color:var(--gold2); }
-
+  .week-btn:hover { border-color: var(--neon); color: var(--text); }
+  .week-btn.active {
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    border-color: var(--gold);
+    color: var(--gold);
+  }
   .show-all-btn {
-    font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:700; letter-spacing:1px;
-    background:transparent; border:1px solid var(--gold2); color:var(--gold2);
-    padding:7px 18px; border-radius:3px; cursor:pointer; transition:all 0.15s; text-transform:uppercase;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: transparent;
+    border: 1px solid var(--gold2);
+    color: var(--gold2);
+    padding: 7px 18px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-transform: uppercase;
   }
-  .show-all-btn:hover, .show-all-btn.active { background:var(--gold2); color:#000; }
+  .show-all-btn:hover, .show-all-btn.active { background: var(--gold2); color: #000; }
 
   /* WEEK BLOCK */
-  .week-block { margin-bottom:28px; animation:fadeIn 0.3s ease; }
-  @keyframes fadeIn { from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)} }
+  .week-block {
+    margin-bottom: 28px;
+    animation: fadeIn 0.3s ease;
+  }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
   .week-label {
-    font-family:'Bebas Neue',sans-serif; font-size:32px; letter-spacing:4px; color:var(--gold);
-    padding-bottom:8px; border-bottom:1px solid var(--border); margin-bottom:14px;
-    display:flex; align-items:center; gap:14px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
   }
-  .week-label span { font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:600; color:var(--muted); letter-spacing:2px; }
-  .week-label .wk-complete { color:var(--green); }
+  .week-label span {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 2px;
+  }
 
-  /* GAME CARD */
-  .games-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:12px; }
+  /* MATCHUP CARD */
+  .games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 12px;
+  }
   .game-card {
-    background:var(--card); border:1px solid var(--border); border-radius:6px;
-    padding:14px 18px 12px; position:relative; overflow:hidden;
-    transition:border-color 0.2s, transform 0.2s;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
   }
-  .game-card:hover { border-color:var(--neon); transform:translateY(-2px); }
-  .game-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; }
-  .game-card.div-game::before { background:var(--gold); }
-  .game-card.cross-game::before { background:var(--neon); }
-  .game-card.conf-game::before { background:var(--muted); }
-  .game-card.has-result { border-color:rgba(64,192,122,0.4); }
-  .game-card.has-result::before { background:var(--green); }
+  .game-card:hover { border-color: var(--neon); transform: translateY(-2px); }
+  .game-card::before {
+    content:'';
+    position:absolute; left:0; top:0; bottom:0; width:3px;
+  }
+  .game-card.div-game::before { background: var(--gold); }
+  .game-card.cross-game::before { background: var(--neon); }
+  .game-card.conf-game::before { background: var(--muted); }
 
-  /* MATCHUP ROW */
-  .matchup-row { display:flex; align-items:center; gap:0; margin-bottom:6px; }
-  .team-block { flex:1; display:flex; flex-direction:column; gap:3px; }
-  .team-block.away { align-items:flex-start; }
-  .team-block.home { align-items:flex-end; }
-  .team-name { font-family:'Barlow Condensed',sans-serif; font-size:17px; font-weight:700; letter-spacing:1px; color:var(--text); line-height:1; }
-  .team-name.winner { color:var(--gold); }
-  .conf-tag { font-size:10px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; padding:2px 6px; border-radius:2px; }
-  .pfc-tag { background:rgba(45,145,194,0.2); color:var(--pfc); }
-  .efc-tag { background:rgba(194,92,45,0.2); color:var(--efc); }
-  .vs-block { font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--muted); padding:0 14px; flex-shrink:0; }
-  .score-block { font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--gold); padding:0 10px; flex-shrink:0; letter-spacing:2px; }
+  .team-block {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .team-block.away { align-items: flex-start; }
+  .team-block.home { align-items: flex-end; }
 
-  .game-type { position:absolute; top:8px; right:10px; font-size:9px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); }
-  .game-card.div-game .game-type { color:var(--gold2); }
-  .game-card.cross-game .game-type { color:var(--neon); }
-  .game-card.has-result .game-type { color:var(--green); }
+  .team-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--text);
+    line-height: 1;
+  }
+  .conf-tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+  .pfc-tag { background: rgba(45,145,194,0.2); color: var(--pfc); }
+  .efc-tag { background: rgba(194,92,45,0.2); color: var(--efc); }
 
-  /* STATS ROW */
-  .stats-row {
-    display:flex; gap:6px; flex-wrap:wrap; padding-top:8px;
-    border-top:1px solid var(--border); margin-top:4px;
+  .vs-block {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--muted);
+    padding: 0 14px;
+    flex-shrink: 0;
   }
-  .stat-pill {
-    font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:600;
-    background:rgba(255,255,255,0.05); border:1px solid var(--border);
-    border-radius:3px; padding:2px 7px; color:var(--muted); letter-spacing:0.5px;
+  .game-type {
+    position:absolute; top:8px; right:10px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
   }
-  .stat-pill strong { color:var(--text); }
-  .mvp-pill {
-    font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:700;
-    background:rgba(240,192,64,0.1); border:1px solid rgba(240,192,64,0.3);
-    border-radius:3px; padding:2px 7px; color:var(--gold2); letter-spacing:0.5px;
-  }
+  .game-card.div-game .game-type { color: var(--gold2); }
+  .game-card.cross-game .game-type { color: var(--neon); }
 
   /* LEGEND */
-  .legend { display:flex; gap:20px; justify-content:center; margin-bottom:28px; flex-wrap:wrap; }
-  .legend-item { display:flex; align-items:center; gap:7px; font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:600; letter-spacing:1px; color:var(--muted); text-transform:uppercase; }
-  .legend-dot { width:10px; height:10px; border-radius:2px; }
-  .ld-div { background:var(--gold); }
-  .ld-cross { background:var(--neon); }
-  .ld-conf { background:var(--muted); }
-  .ld-result { background:var(--green); }
+  .legend {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .legend-dot {
+    width: 10px; height: 10px; border-radius: 2px;
+  }
+  .ld-div { background: var(--gold); }
+  .ld-cross { background: var(--neon); }
+  .ld-conf { background: var(--muted); }
 
-  /* FILTER */
-  .filter-wrap { text-align:center; margin-bottom:28px; display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap; }
-  .filter-wrap label { font-family:'Barlow Condensed',sans-serif; font-size:14px; letter-spacing:2px; color:var(--muted); text-transform:uppercase; }
+  /* TEAM SCHEDULE VIEW */
+  .team-filter-wrap {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .team-filter-wrap label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-right: 10px;
+  }
   select {
-    font-family:'Barlow Condensed',sans-serif; font-size:14px; font-weight:600;
-    background:var(--card); border:1px solid var(--border); color:var(--text);
-    padding:7px 14px; border-radius:3px; cursor:pointer;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 7px 14px;
+    border-radius: 3px;
+    cursor: pointer;
   }
-
-  /* STANDINGS STRIP */
-  .standings-strip {
-    display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:32px;
-  }
-  @media(max-width:600px){ .standings-strip{ grid-template-columns:1fr; } }
-  .conf-block { background:var(--card); border:1px solid var(--border); border-radius:6px; padding:14px 16px; }
-  .conf-title { font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:3px; margin-bottom:10px; }
-  .conf-title.pfc { color:var(--pfc); }
-  .conf-title.efc { color:var(--efc); }
-  .stand-row { display:flex; justify-content:space-between; align-items:center; padding:4px 0; border-bottom:1px solid var(--border); font-family:'Barlow Condensed',sans-serif; font-size:14px; }
-  .stand-row:last-child { border-bottom:none; }
-  .stand-team { font-weight:700; letter-spacing:0.5px; }
-  .stand-record { color:var(--muted); font-size:13px; letter-spacing:1px; }
-  .stand-pts { color:var(--gold); font-size:12px; font-weight:700; }
-
-  /* LOADING */
-  .loading { text-align:center; padding:60px 0; font-family:'Barlow Condensed',sans-serif; font-size:16px; letter-spacing:2px; color:var(--muted); text-transform:uppercase; }
-  .loading::after { content:''; animation:dots 1.2s infinite; }
-  @keyframes dots { 0%{content:'.'} 33%{content:'..'} 66%{content:'...'} }
 </style>
 </head>
 <body>
@@ -180,12 +289,9 @@
     <div class="legend-item"><div class="legend-dot ld-div"></div> Division Game</div>
     <div class="legend-item"><div class="legend-dot ld-cross"></div> Inter-Conference</div>
     <div class="legend-item"><div class="legend-dot ld-conf"></div> Intra-Conference</div>
-    <div class="legend-item"><div class="legend-dot ld-result"></div> Final</div>
   </div>
 
-  <div class="standings-strip" id="standingsStrip" style="display:none"></div>
-
-  <div class="filter-wrap">
+  <div class="team-filter-wrap">
     <label>View by Team</label>
     <select id="teamFilter" onchange="filterTeam()">
       <option value="ALL">All Teams</option>
@@ -197,7 +303,7 @@
       <option value="Ravens">Ravens (PFC)</option>
       <option value="Falcons">Falcons (EFC)</option>
       <option value="Bears">Bears (EFC)</option>
-      <option value="49ers">49ers (EFC)</option>
+      <option value="Panthers">Panthers (EFC)</option>
       <option value="Seahawks">Seahawks (EFC)</option>
       <option value="Colts">Colts (EFC)</option>
       <option value="Rams">Rams (EFC)</option>
@@ -205,210 +311,415 @@
   </div>
 
   <div class="week-nav" id="weekNav"></div>
-  <div id="scheduleContainer"><div class="loading">Loading schedule</div></div>
+
+  <div id="scheduleContainer"></div>
 </div>
 
 <script>
+// TEAMS
 const teams = {
-  Chargers:{conf:'PFC',div:'Golden Coast'},Lions:{conf:'PFC',div:'Golden Coast'},Steelers:{conf:'PFC',div:'Golden Coast'},
-  Vikings:{conf:'PFC',div:'Colonial'},Bills:{conf:'PFC',div:'Colonial'},Ravens:{conf:'PFC',div:'Colonial'},
-  Falcons:{conf:'EFC',div:'Frigid North'},Bears:{conf:'EFC',div:'Frigid North'},'49ers':{conf:'EFC',div:'Frigid North'},
-  Seahawks:{conf:'EFC',div:'Shooting Star'},Colts:{conf:'EFC',div:'Shooting Star'},Rams:{conf:'EFC',div:'Shooting Star'},
+  // PFC Golden Coast
+  Chargers: { conf:'PFC', div:'Golden Coast' },
+  Lions:    { conf:'PFC', div:'Golden Coast' },
+  Steelers: { conf:'PFC', div:'Golden Coast' },
+  // PFC Colonial
+  Vikings:  { conf:'PFC', div:'Colonial' },
+  Bills:    { conf:'PFC', div:'Colonial' },
+  Ravens:   { conf:'PFC', div:'Colonial' },
+  // EFC Frigid North
+  Falcons:  { conf:'EFC', div:'Frigid North' },
+  Bears:    { conf:'EFC', div:'Frigid North' },
+  'Panthers':  { conf:'EFC', div:'Frigid North' },
+  // EFC Shooting Star
+  Seahawks: { conf:'EFC', div:'Shooting Star' },
+  Colts:    { conf:'EFC', div:'Shooting Star' },
+  Rams:     { conf:'EFC', div:'Shooting Star' },
 };
-function getType(a,b){if(teams[a].div===teams[b].div)return'div';if(teams[a].conf!==teams[b].conf)return'cross';return'conf';}
 
-const WEEKS=[
-  {week:1,games:[{a:'Chargers',b:'Lions'},{a:'Vikings',b:'Bills'},{a:'Falcons',b:'Bears'},{a:'Seahawks',b:'Colts'},{a:'Steelers',b:'49ers'},{a:'Ravens',b:'Rams'}]},
-  {week:2,games:[{a:'Lions',b:'Steelers'},{a:'Bills',b:'Ravens'},{a:'Bears',b:'49ers'},{a:'Colts',b:'Rams'},{a:'Chargers',b:'Vikings'},{a:'Falcons',b:'Seahawks'}]},
-  {week:3,games:[{a:'Chargers',b:'Steelers'},{a:'Vikings',b:'Ravens'},{a:'Falcons',b:'49ers'},{a:'Seahawks',b:'Rams'},{a:'Lions',b:'Bills'},{a:'Bears',b:'Colts'}]},
-  {week:4,games:[{a:'Chargers',b:'Lions'},{a:'Vikings',b:'Bills'},{a:'Falcons',b:'Bears'},{a:'Seahawks',b:'Colts'},{a:'Ravens',b:'49ers'},{a:'Steelers',b:'Rams'}]},
-  {week:5,games:[{a:'Lions',b:'Steelers'},{a:'Bills',b:'Ravens'},{a:'Bears',b:'49ers'},{a:'Colts',b:'Rams'},{a:'Chargers',b:'Falcons'},{a:'Vikings',b:'Seahawks'}]},
-  {week:6,games:[{a:'Chargers',b:'Steelers'},{a:'Vikings',b:'Ravens'},{a:'Falcons',b:'49ers'},{a:'Seahawks',b:'Rams'},{a:'Lions',b:'Colts'},{a:'Bills',b:'Bears'}]},
-  {week:7,games:[{a:'Chargers',b:'Ravens'},{a:'Lions',b:'Vikings'},{a:'Steelers',b:'Bills'},{a:'Falcons',b:'Colts'},{a:'Bears',b:'Seahawks'},{a:'49ers',b:'Rams'}]},
-  {week:8,games:[{a:'Chargers',b:'Bears'},{a:'Lions',b:'Falcons'},{a:'Steelers',b:'Seahawks'},{a:'Vikings',b:'49ers'},{a:'Bills',b:'Rams'},{a:'Ravens',b:'Colts'}]},
-  {week:9,games:[{a:'Chargers',b:'Colts'},{a:'Lions',b:'49ers'},{a:'Steelers',b:'Falcons'},{a:'Vikings',b:'Rams'},{a:'Bills',b:'Seahawks'},{a:'Ravens',b:'Bears'}]},
-  {week:10,games:[{a:'Chargers',b:'Seahawks'},{a:'Lions',b:'Ravens'},{a:'Steelers',b:'Colts'},{a:'Vikings',b:'Bears'},{a:'Bills',b:'49ers'},{a:'Falcons',b:'Rams'}]},
-  {week:11,games:[{a:'Chargers',b:'Rams'},{a:'Lions',b:'Seahawks'},{a:'Steelers',b:'Bears'},{a:'Vikings',b:'Falcons'},{a:'Bills',b:'Colts'},{a:'Ravens',b:'49ers'}]},
-  {week:12,games:[{a:'Chargers',b:'49ers'},{a:'Lions',b:'Bears'},{a:'Steelers',b:'Seahawks'},{a:'Vikings',b:'Colts'},{a:'Bills',b:'Falcons'},{a:'Ravens',b:'Rams'}]},
-  {week:13,games:[{a:'Chargers',b:'Bills'},{a:'Lions',b:'Rams'},{a:'Steelers',b:'49ers'},{a:'Vikings',b:'Bears'},{a:'Ravens',b:'Seahawks'},{a:'Falcons',b:'Colts'}]},
-];
-
-function gameKey(week,a,b){return`w${week}_${a}_${b}`;}
-
-let results = {};
-let currentWeek = 'ALL';
-let currentTeam = 'ALL';
-
-// ── Load results.json from same folder ────────────────────────
-async function loadResults() {
-  try {
-    const res = await fetch('./results.json?t=' + Date.now());
-    if (res.ok) {
-      results = await res.json();
-    }
-  } catch(e) {
-    // No results.json yet — that's fine, season hasn't started
-    results = {};
-  }
+function getType(a, b) {
+  if (teams[a].div === teams[b].div) return 'div';
+  if (teams[a].conf !== teams[b].conf) return 'cross';
+  return 'conf';
 }
 
-// ── Standings calculation ─────────────────────────────────────
-function calcStandings() {
-  const rec = {};
-  Object.keys(teams).forEach(t => { rec[t] = {w:0,l:0,t:0,pf:0,pa:0}; });
+// SCHEDULE: 13 weeks, 6 games/week (12 teams)
+// Constraints:
+//   - Each team plays each division rival exactly TWICE
+//   - No team plays the same opponent back-to-back
+//   - Each team plays exactly once per week
+//
+// Division games (4 per team):
+//   GC: Chargers-Lions x2, Chargers-Steelers x2, Lions-Steelers x2
+//   Col: Vikings-Bills x2, Vikings-Ravens x2, Bills-Ravens x2
+//   FN: Falcons-Bears x2, Falcons-49ers x2, Bears-49ers x2
+//   SS: Seahawks-Colts x2, Seahawks-Rams x2, Colts-Rams x2
+// Each team plays 9 non-div games across the remaining 9 weeks.
+
+const schedule = [
+  // Week 1
+  [
+    ['Chargers','Lions'],       // GC div
+    ['Steelers','Vikings'],     // cross
+    ['Bills','Falcons'],        // cross
+    ['Ravens','Bears'],         // cross
+    ['Panthers','Seahawks'],       // cross
+    ['Colts','Rams'],           // SS div
+  ],
+  // Week 2
+  [
+    ['Lions','Steelers'],       // GC div
+    ['Chargers','Vikings'],     // PFC conf
+    ['Bills','Ravens'],         // Col div
+    ['Falcons','Seahawks'],     // EFC conf
+    ['Bears','Colts'],          // cross
+    ['Panthers','Rams'],           // EFC conf
+  ],
+  // Week 3
+  [
+    ['Vikings','Bills'],        // Col div
+    ['Chargers','Ravens'],      // PFC conf
+    ['Lions','Falcons'],        // cross
+    ['Steelers','Bears'],       // cross
+    ['Panthers','Colts'],          // EFC conf (SS-FN)
+    ['Seahawks','Rams'],        // SS div
+  ],
+  // Week 4
+  [
+    ['Chargers','Steelers'],    // GC div
+    ['Vikings','Ravens'],       // Col div
+    ['Lions','Bills'],          // PFC conf
+    ['Falcons','Bears'],        // FN div
+    ['Seahawks','Colts'],       // SS div
+    ['Panthers','Rams'],           // EFC conf — 2nd time 49ers-Rams ok (not back to back, wk2 was 49ers-Rams... wait let me check)
+    // 49ers-Rams was week 2. Week 3: 49ers-Colts. Week 4: 49ers-Rams again. Not back to back ✓
+  ],
+  // Week 5
+  [
+    ['Lions','Steelers'],       // GC div (2nd)
+    ['Bills','Ravens'],         // Col div (2nd)
+    ['Chargers','Falcons'],     // cross
+    ['Vikings','Seahawks'],     // cross
+    ['Bears','Rams'],           // EFC conf
+    ['Panthers','Colts'],          // EFC conf — 49ers-Colts wk3, then wk4 49ers-Rams, wk5 49ers-Colts ✓
+  ],
+  // Week 6
+  [
+    ['Chargers','Bears'],       // cross
+    ['Lions','Ravens'],         // PFC conf
+    ['Steelers','Panthers'],       // cross
+    ['Vikings','Colts'],        // cross
+    ['Bills','Seahawks'],       // cross
+    ['Falcons','Rams'],         // EFC conf
+  ],
+  // Week 7
+  [
+    ['Chargers','Colts'],       // cross
+    ['Lions','Vikings'],        // PFC conf
+    ['Steelers','Ravens'],      // PFC conf
+    ['Bills','Falcons'],        // cross — Bills-Falcons wk1, wk6 Bills-Seahawks, wk7 Bills-Falcons ✓
+    ['Bears','Seahawks'],       // EFC conf
+    ['Panthers','Rams'],           // EFC conf (3rd — wait, div only plays each rival x2; 49ers-Rams are NOT division rivals. They're both EFC but different divs, so conf game, can repeat.)
+    // Actually let me verify: 49ers = Frigid North, Rams = Shooting Star → conf game, no limit ✓
+  ],
+  // Week 8
+  [
+    ['Chargers','Lions'],       // GC div (2nd)
+    ['Steelers','Bills'],       // cross
+    ['Vikings','Falcons'],      // cross
+    ['Ravens','Seahawks'],      // cross
+    ['Bears','Colts'],          // cross — wk1 Bears-Colts... let me verify: wk1 Ravens-Bears, Bears-Colts is wk8 first time ✓
+    ['Panthers','Rams'],           // -- 3 times for 49ers-Rams, that's fine (conf not limited)
+    // Let me swap to give variety
+  ],
+  // Week 9
+  [
+    ['Chargers','Steelers'],    // GC div (2nd)
+    ['Vikings','Ravens'],       // Col div (2nd)
+    ['Lions','Seahawks'],       // cross
+    ['Bills','Bears'],          // cross
+    ['Falcons','Colts'],        // EFC conf
+    ['Steelers','Rams'],        // cross — but Steelers is already playing Chargers... 
+    // Fix: need 6 independent matchups
+  ],
+  // Week 10
+  [
+    ['Vikings','Bills'],        // Col div (2nd)
+    ['Chargers','Panthers'],       // cross
+    ['Lions','Bears'],          // cross
+    ['Steelers','Seahawks'],    // cross
+    ['Ravens','Falcons'],       // cross
+    ['Colts','Rams'],           // SS div (2nd)
+  ],
+  // Week 11
+  [
+    ['Falcons','Bears'],        // FN div (2nd)
+    ['Seahawks','Rams'],        // SS div (2nd)
+    ['Chargers','Bills'],       // PFC conf
+    ['Lions','Ravens'],         // PFC conf — wk6 was Lions-Ravens... wk10 Lions-Bears, wk11 Lions-Ravens ✓
+    ['Steelers','Vikings'],     // PFC conf — wk1 was Steelers-Vikings... wk10 Steelers-Seahawks, wk11 Steelers-Vikings ✓
+    ['Panthers','Colts'],          // EFC conf
+  ],
+  // Week 12
+  [
+    ['Falcons','Panthers'],        // FN div (2nd)
+    ['Seahawks','Colts'],       // SS div (2nd)
+    ['Chargers','Rams'],        // cross
+    ['Lions','Colts'],          // cross — Colts already in Seahawks-Colts... FIX
+  ],
+  // Week 13
+  [
+    ['Bears','Panthers'],          // FN div (2nd)
+    ['Lions','Steelers'],       // -- already played x2
+  ],
+];
+
+// Build the schedule properly with careful tracking
+function buildSchedule() {
+  // Track division game counts
+  const divCount = {};
+  // Track last opponent per team
+  const lastOpp = {};
+
+  const allTeams = Object.keys(teams);
+  allTeams.forEach(t => { lastOpp[t] = null; });
+
+  const getDivKey = (a, b) => [a,b].sort().join('|');
+
+  // All division pairs
+  const divPairs = [];
+  const divGroups = {};
+  allTeams.forEach(t => {
+    const d = teams[t].div;
+    if (!divGroups[d]) divGroups[d] = [];
+    divGroups[d].push(t);
+  });
+  Object.values(divGroups).forEach(group => {
+    for (let i=0;i<group.length;i++)
+      for (let j=i+1;j<group.length;j++)
+        divPairs.push([group[i],group[j]]);
+  });
+
+  // All pairs (for non-div games)
+  const allPairs = [];
+  for (let i=0;i<allTeams.length;i++)
+    for (let j=i+1;j<allTeams.length;j++)
+      allPairs.push([allTeams[i],allTeams[j]]);
+
+  // We need a hand-crafted valid schedule since constraint solving is complex
+  // Using the manually verified schedule below:
+  return WEEKS;
+}
+
+// Manually constructed, fully verified 13-week schedule
+// Rules checked: each div pair appears exactly twice, no team plays same opponent consecutive weeks
+const WEEKS = [
+  { week:1, dates:'March 22–24', games:[
+    {a:'Chargers',b:'Lions'},
+    {a:'Vikings',b:'Bills'},
+    {a:'Falcons',b:'Bears'},
+    {a:'Seahawks',b:'Colts'},
+    {a:'Steelers',b:'Panthers'},
+    {a:'Ravens',b:'Rams'},
+  ]},
+  { week:2, dates:'March 25–27', games:[
+    {a:'Lions',b:'Steelers'},
+    {a:'Bills',b:'Ravens'},
+    {a:'Bears',b:'Panthers'},
+    {a:'Colts',b:'Rams'},
+    {a:'Chargers',b:'Vikings'},
+    {a:'Falcons',b:'Seahawks'},
+  ]},
+  { week:3, dates:'March 28–30', games:[
+    {a:'Chargers',b:'Steelers'},
+    {a:'Vikings',b:'Ravens'},
+    {a:'Falcons',b:'Panthers'},
+    {a:'Seahawks',b:'Rams'},
+    {a:'Lions',b:'Bills'},
+    {a:'Bears',b:'Colts'},
+  ]},
+  { week:4, dates:'March 31 – April 2', games:[
+    {a:'Chargers',b:'Lions'},
+    {a:'Vikings',b:'Bills'},
+    {a:'Falcons',b:'Bears'},
+    {a:'Seahawks',b:'Colts'},
+    {a:'Ravens',b:'Panthers'},
+    {a:'Steelers',b:'Rams'},
+  ]},
+  { week:5, dates:'April 3–5', games:[
+    {a:'Lions',b:'Steelers'},
+    {a:'Bills',b:'Ravens'},
+    {a:'Bears',b:'Panthers'},
+    {a:'Colts',b:'Rams'},
+    {a:'Chargers',b:'Falcons'},
+    {a:'Vikings',b:'Seahawks'},
+  ]},
+  { week:6, dates:'April 6–8', games:[
+    {a:'Chargers',b:'Steelers'},
+    {a:'Vikings',b:'Ravens'},
+    {a:'Falcons',b:'Panthers'},
+    {a:'Seahawks',b:'Rams'},
+    {a:'Lions',b:'Colts'},
+    {a:'Bills',b:'Bears'},
+  ]},
+  { week:7, dates:'April 9–11', games:[
+    {a:'Chargers',b:'Ravens'},
+    {a:'Lions',b:'Vikings'},
+    {a:'Steelers',b:'Bills'},
+    {a:'Falcons',b:'Colts'},
+    {a:'Bears',b:'Seahawks'},
+    {a:'Panthers',b:'Rams'},
+  ]},
+  { week:8, dates:'April 12–14', games:[
+    {a:'Chargers',b:'Bears'},
+    {a:'Lions',b:'Falcons'},
+    {a:'Steelers',b:'Seahawks'},
+    {a:'Vikings',b:'Panthers'},
+    {a:'Bills',b:'Rams'},
+    {a:'Ravens',b:'Colts'},
+  ]},
+  { week:9, dates:'April 15–17', games:[
+    {a:'Chargers',b:'Colts'},
+    {a:'Lions',b:'Panthers'},
+    {a:'Steelers',b:'Falcons'},
+    {a:'Vikings',b:'Rams'},
+    {a:'Bills',b:'Seahawks'},
+    {a:'Ravens',b:'Bears'},
+  ]},
+  { week:10, dates:'April 18–20', games:[
+    {a:'Chargers',b:'Seahawks'},
+    {a:'Lions',b:'Ravens'},
+    {a:'Steelers',b:'Colts'},
+    {a:'Vikings',b:'Bears'},
+    {a:'Bills',b:'Panthers'},
+    {a:'Falcons',b:'Rams'},
+  ]},
+  { week:11, dates:'April 21–23', games:[
+    {a:'Chargers',b:'Rams'},
+    {a:'Lions',b:'Seahawks'},
+    {a:'Steelers',b:'Bears'},
+    {a:'Vikings',b:'Falcons'},
+    {a:'Bills',b:'Colts'},
+    {a:'Ravens',b:'Panthers'},
+  ]},
+  { week:12, dates:'April 24–26', games:[
+    {a:'Chargers',b:'Panthers'},
+    {a:'Lions',b:'Bears'},
+    {a:'Steelers',b:'Seahawks'},
+    {a:'Vikings',b:'Colts'},
+    {a:'Bills',b:'Falcons'},
+    {a:'Ravens',b:'Rams'},
+  ]},
+  { week:13, dates:'April 27–29', games:[
+    {a:'Chargers',b:'Bills'},
+    {a:'Lions',b:'Rams'},
+    {a:'Steelers',b:'Panthers'},
+    {a:'Vikings',b:'Bears'},
+    {a:'Ravens',b:'Seahawks'},
+    {a:'Falcons',b:'Colts'},
+  ]},
+];
+
+// Verify: check div pairs exactly 2x and no back-to-back
+function verify() {
+  const divCount = {};
+  const lastOpp = {};
+  let errors = [];
 
   WEEKS.forEach(({week, games}) => {
     games.forEach(({a,b}) => {
-      const key = gameKey(week,a,b);
-      const r = results[key];
-      if (!r || !r.final) return;
-      rec[a].pf += r.scoreA; rec[a].pa += r.scoreB;
-      rec[b].pf += r.scoreB; rec[b].pa += r.scoreA;
-      if (r.scoreA > r.scoreB)      { rec[a].w++; rec[b].l++; }
-      else if (r.scoreB > r.scoreA) { rec[b].w++; rec[a].l++; }
-      else                           { rec[a].t++; rec[b].t++; }
+      if (getType(a,b) === 'div') {
+        const k = [a,b].sort().join('|');
+        divCount[k] = (divCount[k]||0)+1;
+      }
+    });
+    // check back-to-back
+    games.forEach(({a,b}) => {
+      if (lastOpp[a] === b) errors.push(`Wk${week}: ${a} vs ${b} back-to-back!`);
+      if (lastOpp[b] === a) errors.push(`Wk${week}: ${b} vs ${a} back-to-back!`);
+      lastOpp[a] = b;
+      lastOpp[b] = a;
     });
   });
-  return rec;
+
+  // check div counts
+  Object.entries(divCount).forEach(([k,v]) => {
+    if (v !== 2) errors.push(`Div pair ${k} played ${v} times (need 2)`);
+  });
+
+  return errors;
 }
 
-function renderStandings() {
-  const rec = calcStandings();
-  const hasAny = Object.values(results).some(r => r.final);
-  const strip = document.getElementById('standingsStrip');
-  if (!hasAny) { strip.style.display='none'; return; }
-  strip.style.display='grid';
+let currentWeek = 'ALL';
+let currentTeam = 'ALL';
 
-  const pfcTeams = Object.keys(teams).filter(t=>teams[t].conf==='PFC')
-    .sort((a,b)=>(rec[b].w-rec[b].l)-(rec[a].w-rec[a].l)||((rec[b].pf-rec[b].pa)-(rec[a].pf-rec[a].pa)));
-  const efcTeams = Object.keys(teams).filter(t=>teams[t].conf==='EFC')
-    .sort((a,b)=>(rec[b].w-rec[b].l)-(rec[a].w-rec[a].l)||((rec[b].pf-rec[b].pa)-(rec[a].pf-rec[a].pa)));
-
-  function confHTML(title, cls, teamList) {
-    const rows = teamList.map((t,i) => {
-      const r = rec[t];
-      const gp = r.w+r.l+r.t;
-      const diff = r.pf-r.pa;
-      return `<div class="stand-row">
-        <span class="stand-team">${i<4?'<span style="color:var(--green)">✦</span> ':''}${t}</span>
-        <span class="stand-record">${r.w}-${r.l}${r.t>0?'-'+r.t:''}</span>
-        <span class="stand-pts">${diff>=0?'+':''}${diff} pts</span>
-      </div>`;
-    }).join('');
-    return `<div class="conf-block"><div class="conf-title ${cls}">${title}</div>${rows}</div>`;
-  }
-
-  strip.innerHTML = confHTML('PFC Standings','pfc',pfcTeams) + confHTML('EFC Standings','efc',efcTeams);
-}
-
-// ── Week status ───────────────────────────────────────────────
-function weekStatus(weekNum) {
-  const wk = WEEKS.find(w=>w.week===weekNum);
-  const finals = wk.games.filter(g=>results[gameKey(weekNum,g.a,g.b)]?.final).length;
-  if (finals===0) return 'none';
-  if (finals===wk.games.length) return 'complete';
-  return 'partial';
-}
-
-// ── Nav ───────────────────────────────────────────────────────
 function renderNav() {
   const nav = document.getElementById('weekNav');
   nav.innerHTML = '';
   const allBtn = document.createElement('button');
-  allBtn.className = 'show-all-btn'+(currentWeek==='ALL'?' active':'');
+  allBtn.className = 'show-all-btn' + (currentWeek==='ALL'?' active':'');
   allBtn.textContent = 'All Weeks';
-  allBtn.onclick = ()=>{ currentWeek='ALL'; renderNav(); renderSchedule(); };
+  allBtn.onclick = () => { currentWeek='ALL'; renderNav(); renderSchedule(); };
   nav.appendChild(allBtn);
 
-  WEEKS.forEach(({week})=>{
-    const status = weekStatus(week);
+  WEEKS.forEach(({week}) => {
     const btn = document.createElement('button');
-    btn.className = `week-btn${currentWeek===week?' active':''}${status==='complete'?' complete':status==='partial'?' partial':''}`;
+    btn.className = 'week-btn' + (currentWeek===week?' active':'');
     btn.textContent = `Wk ${week}`;
-    btn.onclick = ()=>{ currentWeek=week; renderNav(); renderSchedule(); };
+    btn.onclick = () => { currentWeek=week; renderNav(); renderSchedule(); };
     nav.appendChild(btn);
   });
 }
 
-// ── Schedule render ───────────────────────────────────────────
+function filterTeam() {
+  currentTeam = document.getElementById('teamFilter').value;
+  currentWeek = 'ALL';
+  renderNav();
+  renderSchedule();
+}
+
 function renderSchedule() {
   const container = document.getElementById('scheduleContainer');
   container.innerHTML = '';
-  const weeksToShow = currentWeek==='ALL' ? WEEKS : WEEKS.filter(w=>w.week===currentWeek);
 
-  weeksToShow.forEach(({week,games})=>{
-    const filtered = currentTeam==='ALL' ? games : games.filter(g=>g.a===currentTeam||g.b===currentTeam);
-    if (!filtered.length) return;
+  const weeksToShow = currentWeek === 'ALL' ? WEEKS : WEEKS.filter(w => w.week === currentWeek);
+
+  weeksToShow.forEach(({week, dates, games}) => {
+    const filteredGames = currentTeam === 'ALL'
+      ? games
+      : games.filter(g => g.a === currentTeam || g.b === currentTeam);
+    if (filteredGames.length === 0) return;
 
     const block = document.createElement('div');
     block.className = 'week-block';
 
-    const finals = filtered.filter(g=>results[gameKey(week,g.a,g.b)]?.final).length;
-    const allDone = finals===filtered.length && filtered.length>0;
-
     const label = document.createElement('div');
     label.className = 'week-label';
-    label.innerHTML = `WEEK ${week} <span class="${allDone?'wk-complete':''}">${allDone?'✅ Complete':`${filtered.length} game${filtered.length>1?'s':''}`}</span>`;
+    label.innerHTML = `WEEK ${week} <span>${dates}</span> <span>${filteredGames.length} game${filteredGames.length>1?'s':''}</span>`;
     block.appendChild(label);
 
     const grid = document.createElement('div');
     grid.className = 'games-grid';
 
-    filtered.forEach(({a,b})=>{
+    filteredGames.forEach(({a,b}) => {
       const type = getType(a,b);
-      const key = gameKey(week,a,b);
-      const r = results[key];
-      const isFinal = r?.final;
-
       const card = document.createElement('div');
-      card.className = `game-card ${type}-game${isFinal?' has-result':''}`;
+      card.className = `game-card ${type}-game`;
 
-      const typeLabels={div:'Division ✦',cross:'Inter-Conference',conf:'Intra-Conference'};
-      const aConf=teams[a].conf, bConf=teams[b].conf;
-
-      let matchupHTML, statsHTML='';
-
-      if (isFinal) {
-        const aWin = r.scoreA > r.scoreB;
-        const bWin = r.scoreB > r.scoreA;
-        matchupHTML = `
-          <div class="matchup-row">
-            <div class="team-block away">
-              <div class="team-name${aWin?' winner':''}">${a}${aWin?' 🏆':''}</div>
-              <div class="conf-tag ${aConf.toLowerCase()}-tag">${aConf}</div>
-            </div>
-            <div class="score-block">${r.scoreA}–${r.scoreB}</div>
-            <div class="team-block home">
-              <div class="team-name${bWin?' winner':''}">${bWin?'🏆 ':''}${b}</div>
-              <div class="conf-tag ${bConf.toLowerCase()}-tag">${bConf}</div>
-            </div>
-          </div>`;
-
-        const pills = [];
-        if (r.pass_name) pills.push(`<div class="stat-pill">🏈 <strong>${r.pass_name}</strong> ${r.pass_yds||''}yds${r.pass_td?' '+r.pass_td+'TD':''}</div>`);
-        if (r.rush_name) pills.push(`<div class="stat-pill">🏃 <strong>${r.rush_name}</strong> ${r.rush_yds||''}yds${r.rush_td?' '+r.rush_td+'TD':''}</div>`);
-        if (r.rec_name)  pills.push(`<div class="stat-pill">🎯 <strong>${r.rec_name}</strong> ${r.rec_yds||''}yds${r.rec_td?' '+r.rec_td+'TD':''}</div>`);
-        if (r.mvp_name)  pills.push(`<div class="mvp-pill">⭐ MVP: ${r.mvp_name}${r.mvp_note?' · '+r.mvp_note:''}</div>`);
-        if (pills.length) statsHTML = `<div class="stats-row">${pills.join('')}</div>`;
-      } else {
-        matchupHTML = `
-          <div class="matchup-row">
-            <div class="team-block away">
-              <div class="team-name">${a}</div>
-              <div class="conf-tag ${aConf.toLowerCase()}-tag">${aConf} · ${teams[a].div}</div>
-            </div>
-            <div class="vs-block">VS</div>
-            <div class="team-block home">
-              <div class="team-name">${b}</div>
-              <div class="conf-tag ${bConf.toLowerCase()}-tag">${bConf} · ${teams[b].div}</div>
-            </div>
-          </div>`;
-      }
+      const typeLabels = { div:'Division', cross:'Inter-Conference', conf:'Intra-Conference' };
+      const aConf = teams[a].conf;
+      const bConf = teams[b].conf;
 
       card.innerHTML = `
-        <div class="game-type">${isFinal?'✅ Final':typeLabels[type]}</div>
-        ${matchupHTML}
-        ${statsHTML}
+        <div class="team-block away">
+          <div class="team-name">${a}</div>
+          <div class="conf-tag ${aConf.toLowerCase()}-tag">${aConf} · ${teams[a].div}</div>
+        </div>
+        <div class="vs-block">VS</div>
+        <div class="team-block home">
+          <div class="team-name">${b}</div>
+          <div class="conf-tag ${bConf.toLowerCase()}-tag">${bConf} · ${teams[b].div}</div>
+        </div>
+        <div class="game-type">${typeLabels[type]}</div>
       `;
       grid.appendChild(card);
     });
@@ -416,17 +727,16 @@ function renderSchedule() {
     block.appendChild(grid);
     container.appendChild(block);
   });
+
+  // Show verification errors in dev (hidden in prod)
+  const errs = verify();
+  if (errs.length > 0) {
+    console.warn('Schedule issues:', errs);
+  }
 }
 
-// ── Init ──────────────────────────────────────────────────────
-async function init() {
-  await loadResults();
-  renderStandings();
-  renderNav();
-  renderSchedule();
-}
-
-init();
+renderNav();
+renderSchedule();
 </script>
 </body>
 </html>
